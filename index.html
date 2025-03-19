@@ -1,0 +1,650 @@
+{% message_extras :key swid :value {{custom_attribute.${swid}}} %}
+
+{% assign country = 'us' %}
+{% assign language = 'en' %}
+{% comment %} Assign valid region name: EMEA, NAM, LATAM, APAC {% endcomment %}
+{% assign region = 'NAM' %}
+{% assign testmode = 'false' %}
+{% assign variant = 'null' %}
+{% assign date = {{ 'now' | date: '%Y/%m/%d' }} %}
+
+{% comment %} 'XXX' to be replaced with Claravine campaign ID {% endcomment %}
+{% assign claravine = 'dss-Disneyplus-email-70NWUTKB9F' %}
+{{content_blocks.${Email_ClaravineQSP} | id: 'cb1'}}
+
+{% comment %} Assign Region defaults {% endcomment %}
+{% catalog_items Email_RegionDefaults {{region}} %}
+{% assign defaultLanguage = {{items[0].defaultLanguage}} %}
+{% assign defaultCountry = {{items[0].defaultCountry}} %}
+{% assign footerLegal = {{items[0].footerLegal}} %}
+
+{{content_blocks.${Email_AbortMessage} | id: 'cb2'}}
+
+{{content_blocks.${Email_FontStylingLogic} | id: 'cb3'}}
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" lang="{{lang}}">
+<head>
+<meta http-equiv="Content-Type" content="text/html;" charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!--[if !mso]><!-->
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<!--<![endif]-->
+<meta name="color-scheme" content="light">
+<meta name="supported-color-schemes" content="light">
+<style type="text/css">
+{
+% if fontStackInfo != null %
+} { {
+fontStackInfo
+}
+} {
+% else %
+} {
+% endif %
+}
+.ReadMsgBody {
+    width: 100%;
+}
+/* Forces Hotmail to display emails at full width */
+.ExternalClass {
+    width: 100%;
+}
+/* Hotmail table centering fix */
+.ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {
+    line-height: 100%;
+}
+/* Forces Hotmail to display normal line spacing */
+.ExternalClass * {
+    line-height: 100%
+}
+p {
+    margin: 1em 0;
+}
+/* Yahoo paragraph fix */
+table td {
+    border-collapse: collapse;
+}
+/* Anti-aliasing font for Webkit-based browsers */
+td, span, a, b, p, h1, h2, h3, h4, h5, h6 {
+    -webkit-font-smoothing: antialiased;
+}
+/* This resolves the Outlook 07, 10, and Gmail td padding issue fix */
+        /* This resolves the issue when iphone puts links on dates, etc. */
+.appleLinksWhite a {
+    color: #ffffff;
+    text-decoration: none;
+}
+.appleLinksWhiteUL a {
+    color: #ffffff;
+    text-decoration: underline;
+}
+.appleLinksWhite2 a {
+    color: #F9F9F9 !important;
+    text-decoration: none !important;
+}
+.appleLinksGray a {
+    color: #1f326f;
+    text-decoration: none;
+}
+.appleLinksGray2 a {
+    color: #707070;
+    text-decoration: none;
+}
+.appleLinksGray3 a {
+    color: #95a1bc !important;
+    text-decoration: none !important;
+}
+.appleLinksGray4 a {
+    color: #afafaf !important;
+    text-decoration: none !important;
+}
+.appleLinksGray5 a {
+    color: #c0c0c0 !important;
+    text-decoration: none !important;
+}
+.appleLinksGray5UL a {
+    color: #c0c0c0 !important;
+    text-decoration: underline;
+}
+.appleLinksBlack a {
+    color: #000;
+    text-decoration: none;
+}
+.appleLinksGreen a {
+    color: #1a3c34 !important;
+}
+.blueLinks, .blueLinks a {
+    color: inherit !important;
+    text-decoration: none !important;
+}
+a.mobileshow, .mobilehide {
+    display: none;
+    color: #fff;/* for Gmail */
+}
+.tonline {
+    display: block !important;
+}
+.module {
+    margin: 0 !important;
+    border: none !important;
+}
+
+@media only screen and (max-width: 480px) {
+#background {
+    background-color: #ffffff !important;
+}
+}
+
+@media only screen and (max-width: 580px) {
+.module {
+    margin-bottom: -1px !important;
+    border-width: 1px !important;
+}
+}
+
+/* This resolves the issue where the text color didn't change in Dark Mode for iOS 11, 13, and 16. */
+@media (prefers-color-scheme: dark) {
+td.appleLinksWhite {
+    -webkit-text-fill-color: #ffffff !important;
+}
+.module_1 {
+    background-color: #202124 !important;
+}
+}
+body {
+    height: 100% !important;
+    margin: 0 auto !important;
+    padding: 0;
+    width: 100% !important;
+}
+p {
+    margin: 0;
+    padding: 0;
+}
+table {
+    border-collapse: collapse;
+}
+</style>
+<!--[if mso]>
+        <style>
+        td, a {
+        font-family: Arial, sans-serif !important;
+        }
+        .buttonLink, .button2Link {
+        background-color:transparent !important;
+        border: transparent !important;
+        }
+        </style>
+        <![endif]--> 
+<!--[if gte mso 9]>
+        <xml>
+        <o:OfficeDocumentSettings>
+        <o:AllowPNG/>
+        <o:PixelsPerInch>96</o:PixelsPerInch>
+        </o:OfficeDocumentSettings>
+        </xml>
+        <![endif]-->
+<title>Stream On | What to watch this week</title>
+</head>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" style="width:100% !important;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;margin-top:0;margin-bottom:0;margin-right:0;margin-left:0;padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;background-image:none;background-repeat:repeat;background-position:top center;background-attachment:scroll;">
+<span class="preheader" style="color:#eaeaea;display:none!important;font-size:1px;line-height:1px;max-height:0;max-width:0;mso-hide:all!important;opacity:0;overflow:hidden;visibility:hidden">&nbsp;</span> 
+<!-- Insert &zwnj;&nbsp; hack after hidden preview text -->
+<div style="display: none; max-height: 0px; overflow: hidden;"> &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;
+  &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;
+  &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;
+  &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;
+  &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;
+  &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;
+  &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;
+  &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;
+  &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;
+  &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;
+  &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;
+  &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;
+  &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;
+  &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;
+  &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;
+  &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;
+  &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;
+  &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;
+  &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;
+  &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;
+  &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj; </div>
+<table id="background" role="presentation" cellpadding="0" cellspacing="0" border="0" align="center" width="100%" bgcolor="#eaeaea">
+  <tr>
+    <td><table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center" width="480" bgcolor="#02172A" style="width: 480px !important;">
+        <tr>
+          <td align="center"><table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+              <tr>
+                <td>{{content_blocks.${Email_Header} | id: 'cb4'}}</td>
+              </tr>
+              <!-- ====== START Body Modules ====== --> 
+			  
+			  <!-- START Hero_A1SH_Twilight -->
+{% message_extras :key ImpressionRegion :value Hero_A1SH_Twilight %}
+{% assign ImpressionRegionName = 'Hero_A1SH_Twilight' %}
+{{content_blocks.${Email_ClaravineQSP}}}
+<tr>
+    <td align="center">
+        <table class="module" role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" bgcolor="#02172A" style="margin-bottom: -1px; border-bottom: 1px solid #02172A;">
+            <tr>
+                <td align="center">
+                    <a href="https://www.disneyplus.com/commerce/unlock?resourceId=eyJ0eXBlIjoiZW50aXRsZW1lbnRzIiwiZW50aXRsZW1lbnRJZHMiOlsiaHVsdV9zdWI6YmFzZSJdfQ==" data-msys-sublink="open-in-app" target="_blank" style="text-decoration: none;"><img src="https://braze-images.com/appboy/communication/assets/image_assets/images/67d312a32e4ea70067c8ccbd/original.jpg?1741886115" alt="Anora" border="0" width="480" style="display: block;height: auto;color:#ffffff;font-size: {{captionFontSize}};text-align: center;font-family:{{fontFamily}}; font-weight: {{fontWeight}}; line-height: {{captionLineHeight}};"></a>
+                </td>
+            </tr>
+            <tr>
+                <td align="{{headerAlignment}}" style="padding: 18px 40px 10px;font-size: {{headerFontSize}}; font-weight:{{headerFontWeight}};color:#ffffff; font-family:{{fontFamily}};letter-spacing:{{headerTracking}};line-height:{{headerLineHeight}}; mso-line-height-rule: exactly;text-transform: {{headerH1Case}};">
+                    Limited time offer
+                </td>
+            </tr>
+            <tr>
+                <td align="{{alignment}}" style="padding:0 40px 24px;font-size:{{bodyFontSize}}; color: #ffffff; font-family:{{fontFamily}};line-height:{{bodyLineHeight}}; font-weight: {{fontWeight}}; mso-line-height-rule: exactly;">
+                    <b>Bundle Disney+ and Hulu (both with ads) and get them together for just $2.99/mo for 4&nbsp;months.<sup style="line-height: 0;">&#42;</sup></b><br><br>
+
+Upgrade to stream <i>Anora</i> &#8212; winner of 5 Academy Awards<sup style="line-height: 0; font-size:15px;">&#174;</sup> including Best Picture &#8212; in your Disney+ app. Don’t miss this love story from Sean&nbsp;Baker starring Mikey&nbsp;Madison. Terms&nbsp;apply.<sup style="line-height: 0;">&#42;&#42;</sup>
+
+                </td>
+            </tr>
+            <tr>
+                <td align="center" style="padding-bottom: 48px;" class="appleLinksBlack">
+                    <div>
+                        <!--[if mso]>
+                        <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://www.disneyplus.com/commerce/unlock?resourceId=eyJ0eXBlIjoiZW50aXRsZW1lbnRzIiwiZW50aXRsZW1lbnRJZHMiOlsiaHVsdV9zdWI6YmFzZSJdfQ=={{adobeParams}}QJ7SA0TM87_button" style="height:50px;v-text-anchor:middle;width:370px;letter-spacing:{{ctaTracking}}" arcsize="8%" stroke="f" fillcolor="#02D6E8">
+                        <w:anchorlock/>
+                        <center>
+                        <![endif]-->
+                            <a href="https://www.disneyplus.com/commerce/unlock?resourceId=eyJ0eXBlIjoiZW50aXRsZW1lbnRzIiwiZW50aXRsZW1lbnRJZHMiOlsiaHVsdV9zdWI6YmFzZSJdfQ==" data-msys-sublink="open-in-app"class="buttonLink" style="background-color:#02D6E8; background-image:linear-gradient(#02D6E8,#02D6E8) !important; box-shadow: inset 0px 50px #02D6E8; border-radius:4px;color:#000;font-family:{{fontFamily}};display:inline-block;font-size:{{ctaFontSize}};font-weight:{{ctaFontWeight}};line-height:{{ctaLineHeight}};text-align:center;text-transform: uppercase;text-decoration:none;width:370px;-webkit-text-size-adjust:none;letter-spacing:{{ctaTracking}};">CLAIM OFFER</a>
+                        <!--[if mso]>
+                        </center>
+                        </v:roundrect>
+                        <![endif]-->
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </td>
+</tr>
+<!-- END Hero_A1SH_Twilight -->
+			  
+			  <!-- START Content_A1_1up_Dusk -->
+{% message_extras :key ImpressionRegion :value Content_A1_1up_Dusk %}
+{% assign ImpressionRegionName = 'Content_A1_1up_Dusk' %}
+{{content_blocks.${Email_ClaravineQSP}}}
+<tr>
+    <td align="center">
+        <table class="module" role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" align="center" bgcolor="#054553" style="margin-bottom: -1px; border-bottom: 1px solid #054553;">
+            <tr>
+                <td align="center">
+                    <a href="https://www.disneyplus.com/browse/entity-6bcc3836-ea9c-432d-a06d-1c71b78b8c88" data-msys-sublink="open-in-app" target="_blank" style="text-decoration: none;"><img src="https://braze-images.com/appboy/communication/assets/image_assets/images/67d312a36c01100064e98cb2/original.jpg?1741886115" alt="Star Wars: Young Jedi Adventures" border="0" width="480" style="height: auto; display: block;color:#ffffff;font-size: {{captionFontSize}};text-align: center;font-family:{{fontFamily}}; font-weight: {{fontWeight}}; line-height: {{captionLineHeight}};"></a>
+                </td>
+            </tr>
+            <tr>
+                <td align="{{alignment}}" style="padding:48px 40px 10px;font-size: {{contentFontSize}}; font-weight: {{contentFontWeight}};color: #ffffff; font-family:{{fontFamily}};line-height:{{contentLineHeight}};letter-spacing: {{contentTracking}}; mso-line-height-rule: exactly;">
+                    More adventures await
+                </td>
+            </tr>
+            <tr>
+                <td align="{{alignment}}" style="padding-left: 40px; padding-right: 40px; padding-bottom: 24px; font-size:{{bodyFontSize}}; color: #ffffff; font-family:{{fontFamily}};line-height:{{bodyLineHeight}}; font-weight: {{fontWeight}}; mso-line-height-rule: exactly;">
+                    The younglings are back, taking on new missions across the galaxy as they try to stop the rise of the pirates! Check out all&#8209;new episodes of <i>Star Wars: Young Jedi Adventures</i>, now&nbsp;streaming.
+                </td>
+            </tr>
+            <tr>
+                <td align="center" style="padding-bottom: 48px;" class="appleLinksBlack">
+                    <div>
+                        <!--[if mso]>
+                        <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://www.disneyplus.com/browse/entity-6bcc3836-ea9c-432d-a06d-1c71b78b8c88{{adobeParams}}WG4ML2KN79_button" style="height:50px;v-text-anchor:middle;width:370px;letter-spacing:{{ctaTracking}}" arcsize="8%" stroke="f" fillcolor="#02D6E8">
+                        <w:anchorlock/>
+                        <center>
+                        <![endif]-->
+                            <a href="https://www.disneyplus.com/browse/entity-6bcc3836-ea9c-432d-a06d-1c71b78b8c88" data-msys-sublink="open-in-app" class="buttonLink" style="background-color:#02D6E8;background-image:linear-gradient(#02D6E8,#02D6E8) !important; box-shadow: inset 0px 50px #02D6E8; border-radius:4px;color:#000;font-family:{{fontFamily}};display:inline-block;font-size:{{ctaFontSize}};font-weight:{{ctaFontWeight}};line-height:{{ctaLineHeight}};text-align:center;text-decoration:none;width:370px;-webkit-text-size-adjust:none;letter-spacing:{{ctaTracking}};text-transform:uppercase;">Add to Watchlist</a>
+                        <!--[if mso]>
+                        </center>
+                        </v:roundrect>
+                        <![endif]-->
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </td>
+</tr>
+<!-- END Content_A1_1up_Dusk -->
+			  
+			  <!-- START Title_A3_3up_Dusk -->
+{% message_extras :key ImpressionRegion :value Title_A3_3up_Dusk %}
+{% assign ImpressionRegionName = 'Title_A3_3up_Dusk' %}  
+{{content_blocks.${Email_ClaravineQSP}}}
+<tr>
+  <td align="center">
+    <table class="module" role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" align="center" bgcolor="#054553" style="margin-bottom: -1px; border-bottom: 1px solid #054553;">
+      <tr>
+        <td align="{{alignment}}" style="padding:48px 40px 24px;font-size: {{contentFontSize}}; font-weight: {{contentFontWeight}};color: #ffffff; font-family:{{fontFamily}};line-height:{{contentLineHeight}};letter-spacing: {{contentTracking}}; mso-line-height-rule: exactly;">
+          What’s new
+        </td>
+      </tr>
+      <tr>
+        <td align="center" style="padding: 0 40px 48px;" valign="top">
+          <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" align="left" valign="top">
+            <tr>
+              <td align="left" style="padding-bottom:10px;" valign="top">
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="127" align="left" valign="top">
+                  <tr>
+                    <td align="center" valign="top"><a href="https://www.disneyplus.com/browse/entity-a21ee2fc-421e-4839-bfcc-0bf2ba815875" data-msys-sublink="open-in-app" target="_blank" style="text-decoration: none;"><img src="https://braze-images.com/appboy/communication/assets/image_assets/images/67d312a3f650a600643a5005/original.jpg?1741886115" alt="Moana 2" border="0" width="127" height="178" style="border-radius:4px;display: block;color:#ffffff;font-family:{{fontFamily}};font-size:{{captionFontSize}};text-align: center; font-weight: {{fontWeight}}; line-height: {{captionLineHeight}};"></a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td align="{{alignment}}" valign="top">
+                      <table cellpadding="0" cellspacing="0" border="0" width="120" role="presentation" valign="top">
+                        <tr>
+                          <td align="{{alignment}}" style="color:#ffffff; padding:10px 0px 0px;font-size: {{captionFontSize}}; font-weight: {{fontWeight}};color: #ffffff; font-family:{{fontFamily}};line-height:{{captionLineHeight}}; mso-line-height-rule: exactly;" valign="top"></td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+              <td align="center" style="padding-bottom:10px;" valign="top">
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="127" align="center" valign="top">
+                  <tr>
+                    <td align="center" valign="top"><a href="https://www.disneyplus.com/browse/entity-f9f08d9b-5a0f-4b8b-8e41-f2a936c258f6" data-msys-sublink="open-in-app" target="_blank" style="text-decoration: none;"><img src="https://braze-images.com/appboy/communication/assets/image_assets/images/67d312a3c3c9110064240bb7/original.jpg?1741886115" alt="Life Below Zero" border="0" width="127" height="178" style="border-radius:4px;display: block;color:#ffffff;font-family:{{fontFamily}};font-size:{{captionFontSize}};text-align: center; font-weight: {{fontWeight}}; line-height: {{captionLineHeight}};"></a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td align="{{alignment}}" valign="top">
+                      <table cellpadding="0" cellspacing="0" border="0" width="120" role="presentation" valign="top">
+                        <tr>
+                          <td align="{{alignment}}" style="color:#ffffff; padding:10px 0px 0px;font-size: {{captionFontSize}}; font-weight: {{fontWeight}};color: #ffffff; font-family:{{fontFamily}};line-height:{{captionLineHeight}}; mso-line-height-rule: exactly;" valign="top"></td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+              <td align="right" style="padding-bottom:10px;" valign="top">
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="126" align="right" valign="top">
+                  <tr>
+                    <td align="center" valign="top"><a href="https://www.disneyplus.com/browse/entity-85e7a914-c8e6-41db-95df-c740dc2cf1b7" data-msys-sublink="open-in-app" target="_blank" style="text-decoration: none;"><img src="https://braze-images.com/appboy/communication/assets/image_assets/images/67d312a33739a30064711eec/original.jpg?1741886115" alt="Daredevil: Born Again" border="0" width="126" height="178" style="border-radius:4px;display: block;color:#ffffff;font-family:{{fontFamily}};font-size:{{captionFontSize}};text-align: center; font-weight: {{fontWeight}}; line-height: {{captionLineHeight}};"></a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td align="{{alignment}}" valign="top">
+                      <table cellpadding="0" cellspacing="0" border="0" width="120" role="presentation" valign="top">
+                        <tr>
+                          <td align="{{alignment}}" style="color:#ffffff; padding:10px 0px 0px;font-size: {{captionFontSize}}; font-weight: {{fontWeight}};color: #ffffff; font-family:{{fontFamily}};line-height:{{captionLineHeight}}; mso-line-height-rule: exactly;" valign="top"></td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr> 
+<!-- END Title_A3_3up_Dusk -->
+			  
+			  <!-- START Content_A1_1up_Twilight -->
+{% message_extras :key ImpressionRegion :value Content_A1_1up_Twilight %}
+{% assign ImpressionRegionName = 'Content_A1_1up_Twilight' %}
+{{content_blocks.${Email_ClaravineQSP}}}
+<tr>
+    <td align="center">
+        <table class="module" role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" align="center" bgcolor="#02172A" style="margin-bottom: -1px; border-bottom: 1px solid #02172A;">
+            <tr>
+                <td align="center">
+                    <a href="https://www.disneyplus.com/browse/entity-be4719cc-b491-4593-b5a7-d8658976c0b9" data-msys-sublink="open-in-app" target="_blank" style="text-decoration: none;"><img src="https://braze-images.com/appboy/communication/assets/image_assets/images/67d312a3b60b060064800bc9/original.jpg?1741886115" alt="Mufasa: The Lion King" border="0" width="480" style="height: auto; display: block;color:#ffffff;font-size: {{captionFontSize}};text-align: center;font-family:{{fontFamily}}; font-weight: {{fontWeight}}; line-height: {{captionLineHeight}};"></a>
+                </td>
+            </tr>
+            <tr>
+                <td align="{{alignment}}" style="padding:48px 40px 10px;font-size: {{contentFontSize}}; font-weight: {{contentFontWeight}};color: #ffffff; font-family:{{fontFamily}};line-height:{{contentLineHeight}};letter-spacing: {{contentTracking}}; mso-line-height-rule: exactly;">
+                    Get ready to&nbsp;celebrate<br>
+the circle of&nbsp;life
+                </td>
+            </tr>
+            <tr>
+                <td align="{{alignment}}" style="padding-left: 40px; padding-right: 40px; padding-bottom: 24px; font-size:{{bodyFontSize}}; color: #ffffff; font-family:{{fontFamily}};line-height:{{bodyLineHeight}}; font-weight: {{fontWeight}}; mso-line-height-rule: exactly;">
+                    The legends you know. The story you don’t. On Ma&zwnj;rc&zwnj;h 2&zwnj;6, experience the global phenomenon with the whole family on&nbsp;Disney+.
+                </td>
+            </tr>
+            <tr>
+                <td align="center" style="padding-bottom: 48px;" class="appleLinksBlack">
+                    <div>
+                        <!--[if mso]>
+                        <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://www.disneyplus.com/browse/entity-be4719cc-b491-4593-b5a7-d8658976c0b9{{adobeParams}}GL5JX1XG64_button" style="height:50px;v-text-anchor:middle;width:370px;letter-spacing:{{ctaTracking}}" arcsize="8%" stroke="f" fillcolor="#02D6E8">
+                        <w:anchorlock/>
+                        <center>
+                        <![endif]-->
+                            <a href="https://www.disneyplus.com/browse/entity-be4719cc-b491-4593-b5a7-d8658976c0b9" data-msys-sublink="open-in-app" class="buttonLink" style="background-color:#02D6E8;background-image:linear-gradient(#02D6E8,#02D6E8) !important; box-shadow: inset 0px 50px #02D6E8; border-radius:4px;color:#000;font-family:{{fontFamily}};display:inline-block;font-size:{{ctaFontSize}};font-weight:{{ctaFontWeight}};line-height:{{ctaLineHeight}};text-align:center;text-decoration:none;width:370px;-webkit-text-size-adjust:none;letter-spacing:{{ctaTracking}};text-transform:uppercase;">ADD TO WATCHLIST</a>
+                        <!--[if mso]>
+                        </center>
+                        </v:roundrect>
+                        <![endif]-->
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </td>
+</tr>
+<!-- END Content_A1_1up_Twilight -->
+			  
+			  <!-- START Title_A3_3up_Twilight -->
+{% message_extras :key ImpressionRegion :value Title_A3_3up_Twilight %}
+{% assign ImpressionRegionName = 'Title_A3_3up_Twilight' %}  
+{{content_blocks.${Email_ClaravineQSP}}}
+<tr>
+<td align="center">
+  <table class="module" role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" align="center" bgcolor="#02172A" style="margin-bottom: -1px; border-bottom: 1px solid #02172A;">
+    <tr>
+      <td align="{{alignment}}" style="padding:48px 40px 24px;font-size: {{contentFontSize}}; font-weight: {{contentFontWeight}};color: #ffffff; font-family:{{fontFamily}};line-height:{{contentLineHeight}};letter-spacing: {{contentTracking}}; mso-line-height-rule: exactly;">
+        Celebrate National Puppy&nbsp;Day
+      </td>
+    </tr>
+    <tr>
+      <td align="center" style="padding: 0 40px 48px;" valign="top">
+        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" align="left" valign="top">
+          <tr>
+            <td align="left" style="padding-bottom:10px;" valign="top">
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="127" align="left" valign="top">
+                <tr>
+                  <td align="center" valign="top"><a href="https://www.disneyplus.com/browse/entity-fa6973b9-e7cf-49fb-81a2-d4908e4bf694" data-msys-sublink="open-in-app" target="_blank" style="text-decoration: none;"><img src="https://braze-images.com/appboy/communication/assets/image_assets/images/67d312a3c0e4cf006456f590/original.jpg?1741886115" alt="Bluey" border="0" width="127" height="178" style="border-radius:4px;display: block;color:#ffffff;font-family:{{fontFamily}};font-size:{{captionFontSize}};text-align: center; font-weight: {{fontWeight}}; line-height: {{captionLineHeight}};"></a>
+                  </td>
+                </tr>
+                <tr>
+                  <td align="{{alignment}}" valign="top">
+                    <table cellpadding="0" cellspacing="0" border="0" width="120" role="presentation" valign="top">
+                      <tr>
+                        <td align="{{alignment}}" style="color:#ffffff; padding:10px 0px 0px;font-size: {{captionFontSize}}; font-weight: {{fontWeight}};color: #ffffff; font-family:{{fontFamily}};line-height:{{captionLineHeight}}; mso-line-height-rule: exactly;" valign="top">Max 20 characters
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td align="center" style="padding-bottom:10px;" valign="top">
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="127" align="center" valign="top">
+                <tr>
+                  <td align="center" valign="top"><a href="https://www.disneyplus.com/browse/entity-894faa39-c984-4e82-aaaa-69c7664ea61b" data-msys-sublink="open-in-app" target="_blank" style="text-decoration: none;"><img src="https://braze-images.com/appboy/communication/assets/image_assets/images/67d312a38310e000647219bf/original.jpg?1741886115" alt="Pupstruction" border="0" width="127" height="178" style="border-radius:4px;display: block;color:#ffffff;font-family:{{fontFamily}};font-size:{{captionFontSize}};text-align: center; font-weight: {{fontWeight}}; line-height: {{captionLineHeight}};"></a>
+                  </td>
+                </tr>
+                <tr>
+                  <td align="{{alignment}}" valign="top">
+                    <table cellpadding="0" cellspacing="0" border="0" width="120" role="presentation" valign="top">
+                      <tr>
+                        <td align="{{alignment}}" style="color:#ffffff; padding:10px 0px 0px;font-size: {{captionFontSize}}; font-weight: {{fontWeight}};color: #ffffff; font-family:{{fontFamily}};line-height:{{captionLineHeight}}; mso-line-height-rule: exactly;" valign="top">Max 20 characters
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td align="right" style="padding-bottom:10px;" valign="top">
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="126" align="right" valign="top">
+                <tr>
+                  <td align="center" valign="top"><a href="https://www.disneyplus.com/browse/entity-19defd3b-5c17-48ec-a8ec-fbcc1e50deed" data-msys-sublink="open-in-app" target="_blank" style="text-decoration: none;"><img src="https://braze-images.com/appboy/communication/assets/image_assets/images/67d312a3cdba7900644c72c8/original.jpg?1741886115" alt="Puppy Dog Pals" border="0" width="126" height="178" style="border-radius:4px;display: block;color:#ffffff;font-family:{{fontFamily}};font-size:{{captionFontSize}};text-align: center; font-weight: {{fontWeight}}; line-height: {{captionLineHeight}};"></a>
+                  </td>
+                </tr>
+                <tr>
+                  <td align="{{alignment}}" valign="top">
+                    <table cellpadding="0" cellspacing="0" border="0" width="120" role="presentation" valign="top">
+                      <tr>
+                        <td align="{{alignment}}" style="color:#ffffff; padding:10px 0px 0px;font-size: {{captionFontSize}}; font-weight: {{fontWeight}};color: #ffffff; font-family:{{fontFamily}};line-height:{{captionLineHeight}}; mso-line-height-rule: exactly;" valign="top">Max 20 characters
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</td>
+</tr>
+<!-- END Title_A3_3up_Twilight -->
+			  
+			  <!-- START Content_A1_1up_Dusk -->
+{% message_extras :key ImpressionRegion :value Content_A1_1up_Dusk %}
+{% assign ImpressionRegionName = 'Content_A1_1up_Dusk' %}
+{{content_blocks.${Email_ClaravineQSP}}}
+<tr>
+    <td align="center">
+        <table class="module" role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" align="center" bgcolor="#054553" style="margin-bottom: -1px; border-bottom: 1px solid #054553;">
+            <tr>
+                <td align="center">
+                    <a href="https://www.disneyplus.com/browse/entity-6ea92ae9-01c8-4795-9fed-ae46cddffa4b" data-msys-sublink="open-in-app" target="_blank" style="text-decoration: none;"><img src="https://braze-images.com/appboy/communication/assets/image_assets/images/67d312a300f29b00651ae922/original.jpg?1741886115" alt="ESPN Sportscenter" border="0" width="480" style="height: auto; display: block;color:#ffffff;font-size: {{captionFontSize}};text-align: center;font-family:{{fontFamily}}; font-weight: {{fontWeight}}; line-height: {{captionLineHeight}};"></a>
+                </td>
+            </tr>
+            <tr>
+                <td align="{{alignment}}" style="padding:48px 40px 10px;font-size: {{contentFontSize}}; font-weight: {{contentFontWeight}};color: #ffffff; font-family:{{fontFamily}};line-height:{{contentLineHeight}};letter-spacing: {{contentTracking}}; mso-line-height-rule: exactly;">
+                    Your front row&nbsp;ticket<br>
+to the action
+                </td>
+            </tr>
+            <tr>
+                <td align="{{alignment}}" style="padding-left: 40px; padding-right: 40px; padding-bottom: 24px; font-size:{{bodyFontSize}}; color: #ffffff; font-family:{{fontFamily}};line-height:{{bodyLineHeight}}; font-weight: {{fontWeight}}; mso-line-height-rule: exactly;">
+                    Disney+ and ESPN team up to bring you a game&#8209;changing, new live daily show. With buzzer&#8209;beaters, breakout stars, and the best sports banter, huddle up every morning for a new way to catch up on the world of sports, only on&nbsp;Disney+.
+                </td>
+            </tr>
+            <tr>
+                <td align="center" style="padding-bottom: 48px;" class="appleLinksBlack">
+                    <div>
+                        <!--[if mso]>
+                        <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://www.disneyplus.com/browse/entity-6ea92ae9-01c8-4795-9fed-ae46cddffa4b{{adobeParams}}OA4NV6PG42_button" style="height:50px;v-text-anchor:middle;width:370px;letter-spacing:{{ctaTracking}}" arcsize="8%" stroke="f" fillcolor="#02D6E8">
+                        <w:anchorlock/>
+                        <center>
+                        <![endif]-->
+                            <a href="https://www.disneyplus.com/browse/entity-6ea92ae9-01c8-4795-9fed-ae46cddffa4b" data-msys-sublink="open-in-app" class="buttonLink" style="background-color:#02D6E8;background-image:linear-gradient(#02D6E8,#02D6E8) !important; box-shadow: inset 0px 50px #02D6E8; border-radius:4px;color:#000;font-family:{{fontFamily}};display:inline-block;font-size:{{ctaFontSize}};font-weight:{{ctaFontWeight}};line-height:{{ctaLineHeight}};text-align:center;text-decoration:none;width:370px;-webkit-text-size-adjust:none;letter-spacing:{{ctaTracking}};text-transform:uppercase;">ADD TO WATCHLIST</a>
+                        <!--[if mso]>
+                        </center>
+                        </v:roundrect>
+                        <![endif]-->
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </td>
+</tr>
+<!-- END Content_A1_1up_Dusk -->
+			  
+			  <!-- START Content_A1_1up_Twilight -->
+{% message_extras :key ImpressionRegion :value Content_A1_1up_Twilight %}
+{% assign ImpressionRegionName = 'Content_A1_1up_Twilight' %}
+{{content_blocks.${Email_ClaravineQSP}}}
+<tr>
+    <td align="center">
+        <table class="module" role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" align="center" bgcolor="#02172A" style="margin-bottom: -1px; border-bottom: 1px solid #02172A;">
+            <tr>
+                <td align="center">
+                    <a href="https://www.disneyplus.com/browse/entity-80d31abf-2a96-4fc9-9103-421b9b7a4dc9" data-msys-sublink="open-in-app" target="_blank" style="text-decoration: none;"><img src="https://braze-images.com/appboy/communication/assets/image_assets/images/67d312a36be85000641ff792/original.jpg?1741886115" alt="Disney+ Trivia" border="0" width="480" style="height: auto; display: block;color:#ffffff;font-size: {{captionFontSize}};text-align: center;font-family:{{fontFamily}}; font-weight: {{fontWeight}}; line-height: {{captionLineHeight}};"></a>
+                </td>
+            </tr>
+            <tr>
+                <td align="{{alignment}}" style="padding:48px 40px 10px;font-size: {{contentFontSize}}; font-weight: {{contentFontWeight}};color: #ffffff; font-family:{{fontFamily}};line-height:{{contentLineHeight}};letter-spacing: {{contentTracking}}; mso-line-height-rule: exactly;">
+                    Guess our Women’s<br>
+History Month pick
+                </td>
+            </tr>
+            <tr>
+                <td align="{{alignment}}" style="padding-left: 40px; padding-right: 40px; padding-bottom: 24px; font-size:{{bodyFontSize}}; color: #ffffff; font-family:{{fontFamily}};line-height:{{bodyLineHeight}}; font-weight: {{fontWeight}}; mso-line-height-rule: exactly;">
+                    Starring Daisy&nbsp;Ridley, this 2&zwnj;0&zwnj;2&zwnj;4 film tells the extraordinary true story of Trudy&nbsp;Ederle, the first woman to successfully swim the English&nbsp;Channel.
+                </td>
+            </tr>
+            <tr>
+                <td align="center" style="padding-bottom: 48px;" class="appleLinksBlack">
+                    <div>
+                        <!--[if mso]>
+                        <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://www.disneyplus.com/browse/entity-80d31abf-2a96-4fc9-9103-421b9b7a4dc9{{adobeParams}}OS9NG2VM47_button" style="height:50px;v-text-anchor:middle;width:370px;letter-spacing:{{ctaTracking}}" arcsize="8%" stroke="f" fillcolor="#02D6E8">
+                        <w:anchorlock/>
+                        <center>
+                        <![endif]-->
+                            <a href="https://www.disneyplus.com/browse/entity-80d31abf-2a96-4fc9-9103-421b9b7a4dc9" data-msys-sublink="open-in-app" class="buttonLink" style="background-color:#02D6E8;background-image:linear-gradient(#02D6E8,#02D6E8) !important; box-shadow: inset 0px 50px #02D6E8; border-radius:4px;color:#000;font-family:{{fontFamily}};display:inline-block;font-size:{{ctaFontSize}};font-weight:{{ctaFontWeight}};line-height:{{ctaLineHeight}};text-align:center;text-decoration:none;width:370px;-webkit-text-size-adjust:none;letter-spacing:{{ctaTracking}};text-transform:uppercase;">REVEAL</a>
+                        <!--[if mso]>
+                        </center>
+                        </v:roundrect>
+                        <![endif]-->
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </td>
+</tr>
+<!-- END Content_A1_1up_Twilight -->
+			  
+			  
+              <!-- ====== END Body Modules ======== -->
+            </table></td>
+        </tr>
+        <tr>
+          <td align="center"><table class="module" role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" bgcolor="#02172A" style="margin-bottom: -1px; border-bottom: 1px solid #02172A;">
+              <tr>
+                <td><table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                    <tr>
+                      <td align="center">{{content_blocks.${Email_FooterSocial} | id: 'cb15'}}</td>
+                    </tr>
+                    <tr>
+                      <td align="center">{{content_blocks.${Email_FooterHelp} | id: 'cb16'}}</td>
+                    </tr>
+                    <tr>
+                      <td bgcolor="#757679" style="font-size:0;"><img src="https://braze-images.com/appboy/communication/assets/image_assets/images/6781931dbd4d0000634da106/original.gif" alt="" width="1" height="1" style="display:block" border="0"></td>
+                    </tr>
+                    <tr>
+                      <td>{{content_blocks.${Email_FooterLogos} | id: 'cb17'}}</td>
+                    </tr>
+                    <!-- ====== FooterAdditional_A1_null_Black can be added here ======== --> 
+                   
+                    <!-- START FooterAdditionalA1_null_Twilight --> 
+                    {% message_extras :key ImpressionRegion :value FooterAdditionalA1_null_Twilight %}
+                    {% assign ImpressionRegionName = 'FooterAdditionalA1_null_Twilight' %}
+                    {{content_blocks.${Email_ClaravineQSP} | id: 'cb18'}}
+                    <tr>
+                      <td class="appleLinksGray5UL" style="font-size: {{legalFontSize}}; font-family: {{fontFamily}}; line-height: {{legalLineHeight}}; color: #C0C0C0; padding: 24px 40px 0;mso-line-height-rule: exactly;" align="left">&#42;Savings compared to the then&#8209;current regular monthly price of Disney+, Hulu Bundle Basic. Offer applies to ad&#8209;supported Disney+, Hulu Bundle plan. Offer valid until 1&zwnj;1:&zwnj;5&zwnj;9 P&zwnj;M P&zwnj;S&zwnj;T on 3&zwnj;/3&zwnj;0/&zwnj;2&zwnj;5. Valid only for current Disney+ subscribers; Bundle and Extra Member add&#8209;on subscribers are not eligible. 18+ only. <strong>Upon redeeming this offer, you will be enrolled in an auto&#8209;renewing subscription of Disney+, Hulu Bundle Basic and you will be charged the then&#8209;current retail price ($10.99/month (plus tax, where applicable)) on a monthly basis beginning at the end of your 4&#8209;month promotional offer unless you cancel your subscription before then.</strong> Cancel anytime, through your account settings or by contacting us, effective at the end of your billing period. No refunds or credits for partial months. Use of the services is subject to the <a href="https://www.disneyplus.com/legal/subscriber-agreement?lid=23oi95pb283t" style="text-decoration: underline; color: #C0C0C0" data-msys-clicktrack="0" target="_blank">Disney+, ESPN+, and Hulu Subscriber Agreement</a>. Valid payment method required to redeem offer. Cannot be combined with other offers, coupons, discounts or promotions. Not redeemable for cash or any other goods or services. Eligibility rules and offer timing may vary if you have an account through a third party billing&nbsp;partner. <br/>
+                        <br/>
+                        Access content from each service separately. Location data may be required to watch certain content. Select Hulu content available via Disney+ with valid Disney+ and Hulu subscriptions; additional content only available via Hulu app. Hulu content can be streamed via Disney+ on up to 2 devices simultaneously. Additional app feature and device restrictions apply. For more information, including detailed information on billing and cancelation, please visit the <a href="https://help.disneyplus.com/?lid=a7hcieopryhu" style="text-decoration: underline; color: #C0C0C0" data-msys-clicktrack="0" target="_blank">Disney+ Help&nbsp;Center</a>. <br />
+                        <br />
+                        &#42;&#42;Available for U.S. residents, 18+ only. Location data required to watch certain content. Select Hulu content available via Disney+; additional content only available via Hulu app. Offer valid for eligible subscribers only. Subject to <a href="https://www.disneyplus.com/legal/subscriber-agreement?lid=34ei3wxstly7" style="text-decoration: underline; color: #C0C0C0" data-msys-clicktrack="0" target="_blank">Disney+ and ESPN+ Subscriber Agreement</a>. Additional terms, app feature and device restrictions apply. For more information visit the <a href="https://help.disneyplus.com/?lid=jkdyox8dz35p" style="text-decoration: underline; color: #C0C0C0" data-msys-clicktrack="0" target="_blank">Disney+ Help Center</a>. &copy;&nbsp;{{ "now" | date: '%Y'}} Disney and its related&nbsp;entities. </td>
+                    </tr>
+                    <!-- END FooterAdditionalA1_null_Twilight --> 
+                    
+                    <tr>
+                      <td><!-- Assign valid region: Email_EMEAFooterLegal, Email_NAFooterLegal, Email_LATAMFooterLegal, Email_APACFooterLegal --> 
+                        {{content_blocks.${Email_NAFooterLegal} | id: 'cb19'}} </td>
+                    </tr>
+                  </table></td>
+              </tr>
+              <tr>
+                <td style="padding-left: 240px; padding-right: 240px;"></td>
+              </tr>
+            </table></td>
+        </tr>
+      </table></td>
+  </tr>
+</table>
+</body>
+</html>
