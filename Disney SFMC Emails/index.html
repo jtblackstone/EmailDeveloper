@@ -1,0 +1,630 @@
+%%[
+/* brand email / content area to be either 'DEV' or 'ACTIVE' - NO OTHER VALUE IS ACCEPTED */
+set @type = 'ACTIVE'
+set @country = 'us'
+set @language = 'en'
+set @testmode = 'false'
+set @variant = 'null'
+set @date = format(now(), 'yyyy/MM/dd')
+/* 'XXX' to be replaced with Claravine campaign ID */
+set @claravine = 'dss-Disneyplus-email-RAIC4S7KPD'
+contentblockbykey(concat('ClaravineQSP', @type))
+/* dynamically look up footer block names from bu defaults */
+set @mid = memberid
+set @buDefaultContent = LookupRows(concat('ENT.BU Defaults - ', @type), 'mid', @mid)
+set @buDefaultRow = row(@buDefaultContent, 1)
+set @footerLegal = field(@buDefaultRow,'footerLegal')
+/*Font-Styling Support*/
+contentblockbykey(concat("FontStylingLogic",@type))
+
+]%%
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" lang="%%=v(@lang)=%%">
+<head>
+<meta http-equiv="Content-Type" content="text/html;" charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!--[if !mso]><!-->
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<!--<![endif]-->
+<meta name="color-scheme" content="light">
+<meta name="supported-color-schemes" content="light">
+<style type="text/css">
+%%[IF NOT EMPTY(@fontStackInfo) THEN]%%%%=v(@fontStackInfo)=%%%%[ELSE]%%%%[ENDIF]%% .ReadMsgBody {
+width: 100%;
+}
+/* Forces Hotmail to display emails at full width */
+.ExternalClass {
+    width: 100%;
+}
+/* Hotmail table centering fix */
+.ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {
+    line-height: 100%;
+}
+/* Forces Hotmail to display normal line spacing */
+.ExternalClass * {
+    line-height: 100%
+}
+p {
+    margin: 1em 0;
+}
+/* Yahoo paragraph fix */
+table td {
+    border-collapse: collapse;
+}
+/* Anti-aliasing font for Webkit-based browsers */
+td, span, a, b, p, h1, h2, h3, h4, h5, h6 {
+    -webkit-font-smoothing: antialiased;
+}
+/* This resolves the Outlook 07, 10, and Gmail td padding issue fix */
+        /* This resolves the issue when iphone puts links on dates, etc. */
+.appleLinksWhite a {
+    color: #ffffff;
+    text-decoration: none;
+}
+.appleLinksWhiteUL a {
+    color: #ffffff;
+    text-decoration: underline;
+}
+.appleLinksWhite2 a {
+    color: #F9F9F9 !important;
+    text-decoration: none !important;
+}
+.appleLinksGray a {
+    color: #1f326f;
+    text-decoration: none;
+}
+.appleLinksGray2 a {
+    color: #707070;
+    text-decoration: none;
+}
+.appleLinksGray3 a {
+    color: #95a1bc !important;
+    text-decoration: none !important;
+}
+.appleLinksGray4 a {
+    color: #afafaf !important;
+    text-decoration: none !important;
+}
+.appleLinksGray5 a {
+    color: #c0c0c0 !important;
+    text-decoration: none !important;
+}
+.appleLinksGray5UL a {
+    color: #c0c0c0 !important;
+    text-decoration: underline;
+}
+.appleLinksBlack a {
+    color: #000;
+    text-decoration: none;
+}
+.appleLinksGreen a {
+    color: #1a3c34 !important;
+}
+.blueLinks, .blueLinks a {
+    color: inherit !important;
+    text-decoration: none !important;
+}
+a.mobileshow, .mobilehide {
+    display: none;
+    color: #fff;/* for Gmail */
+}
+.tonline {
+    display: block !important;
+}
+.module {
+    margin: 0 !important;
+    border: none !important;
+}
+
+@media only screen and (max-width: 480px) {
+#background {
+    background-color: #ffffff !important;
+}
+}
+
+@media only screen and (max-width: 580px) {
+.module {
+    margin-bottom: -1px !important;
+    border-width: 1px !important;
+}
+}
+
+/* This resolves the issue where the text color didn't change in Dark Mode for iOS 11, 13, and 16. */
+@media (prefers-color-scheme: dark) {
+td.appleLinksWhite {
+    -webkit-text-fill-color: #ffffff !important;
+}
+.module_1 {
+    background-color: #202124 !important;
+}
+}
+</style>
+<!--[if mso]>
+        <style>
+        td, a {
+        font-family: Arial, sans-serif !important;
+        }
+        .buttonLink, .button2Link {
+        background-color:transparent !important;
+        border: transparent !important;
+        }
+        </style>
+        <![endif]--> 
+<!--[if gte mso 9]>
+        <xml>
+        <o:OfficeDocumentSettings>
+        <o:AllowPNG/>
+        <o:PixelsPerInch>96</o:PixelsPerInch>
+        </o:OfficeDocumentSettings>
+        </xml>
+        <![endif]-->
+<title>Stream On | Don’t miss Paradise</title>
+</head>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" style="width:100% !important;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;margin-top:0;margin-bottom:0;margin-right:0;margin-left:0;padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;background-image:none;background-repeat:repeat;background-position:top center;background-attachment:scroll;">
+<span class="preheader" style="color:#eaeaea;display:none!important;font-size:1px;line-height:1px;max-height:0;max-width:0;mso-hide:all!important;opacity:0;overflow:hidden;visibility:hidden">&nbsp;</span> 
+<!-- Insert &zwnj;&nbsp; hack after hidden preview text -->
+<div style="display: none; max-height: 0px; overflow: hidden;"> &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;
+  &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;
+  &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;
+  &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;
+  &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;
+  &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;
+  &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;
+  &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;
+  &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;
+  &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;
+  &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;
+  &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;
+  &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;
+  &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;
+  &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;
+  &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;
+  &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;
+  &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;
+  &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;
+  &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;
+  &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj; </div>
+<table id="background" role="presentation" cellpadding="0" cellspacing="0" border="0" align="center" width="100%" bgcolor="#eaeaea">
+  <tr>
+    <td><table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center" width="480" bgcolor="#02172A" style="width: 480px !important;">
+        <tr>
+          <td align="center"><table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+              <tr>
+                <td>%%=contentblockbykey(concat("Header", @type))=%%</td>
+              </tr>
+              <!-- ====== START Body Modules ====== --> 
+              
+              <!-- START Hero_A1_1up_Twilight --> 
+              %%=beginImpressionRegion("Hero_A1_1up_Twilight")=%%
+              %%[ contentblockbykey(concat('ClaravineQSP',@type)) ]%%
+              <tr>
+                <td align="center"><table class="module" role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" bgcolor="#02172A" style="margin-bottom: -1px; border-bottom: 1px solid #02172A;">
+                    <tr>
+                      <td align="center"><a href="https://www.disneyplus.com/browse/entity-2b4b8988-50c9-4097-bf93-bc34a99a5b4f" mc-deep-link="true" target="_blank" alias="NV0ZZ9LA10_art" style="text-decoration: none;"><img src="https://image.mail.disneyplus.com/lib/fe4415707564067f751773/m/1/2e24a308-f189-448b-88a9-4ec499eb7bd5.jpg" alt="Paradise" border="0" width="480" style="display: block;height: auto;color:#ffffff;font-size: %%=v(@captionFontSize)=%%;text-align: center;font-family:%%=v(@fontFamily)=%%; font-weight: %%=v(@fontWeight)=%%; line-height: %%=v(@captionLineHeight)=%%;"></a></td>
+                    </tr>
+                    <tr>
+                      <td align="%%=v(@headerAlignment)=%%" style="padding: 18px 40px 10px;font-size: %%=v(@headerFontSize)=%%; font-weight:%%=v(@headerFontWeight)=%%;text-transform: uppercase;color:#ffffff; font-family:%%=v(@fontFamily)=%%;letter-spacing:%%=v(@headerTracking)=%%;line-height:%%=v(@headerLineHeight)=%%; mso-line-height-rule: exactly;"> Read between<br>
+the lies </td>
+                    </tr>
+                    <tr>
+                      <td align="%%=v(@alignment)=%%" style="padding:0 40px 24px;font-size:%%=v(@bodyFontSize)=%%; color: #ffffff; font-family:%%=v(@fontFamily)=%%;line-height:%%=v(@bodyLineHeight)=%%; font-weight: %%=v(@fontWeight)=%%; mso-line-height-rule: exactly;"> In a serene community inhabited by the world's most prominent individuals, a shocking murder reveals that nothing is as it seems. Sterling&nbsp;K.&nbsp;Brown stars in this action thriller from the creators of <i>This is Us</i> and <i>Only Murders in the Building</i>, now on Hulu on&nbsp;Disney+.<sup style="line-height: 0;">&#42;</sup> </td>
+                    </tr>
+                    <tr>
+                      <td align="center" style="padding-bottom: 48px;" class="appleLinksBlack"><div> 
+                          <!--[if mso]>
+                        %%=concat('<v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://www.disneyplus.com/browse/entity-2b4b8988-50c9-4097-bf93-bc34a99a5b4f',@adobeParams,'-','GT0TW5YP35_button" alias="GT0TW5YP35_button" style="height:50px;v-text-anchor:middle;width:370px;letter-spacing:',@ctaTracking,';" arcsize="8%" stroke="f" fillcolor="#02D6E8">')=%%
+                        <w:anchorlock/>
+                        <center>
+                        <![endif]--> 
+                          <a href="https://www.disneyplus.com/browse/entity-2b4b8988-50c9-4097-bf93-bc34a99a5b4f" mc-deep-link="true" alias="GT0TW5YP35_button" class="buttonLink" style="background-color:#02D6E8; background-image:linear-gradient(#02D6E8,#02D6E8) !important; box-shadow: inset 0px 50px #02D6E8; border-radius:4px;color:#000;font-family:%%=v(@fontFamily)=%%;display:inline-block;font-size:%%=v(@ctaFontSize)=%%;font-weight:%%=v(@ctaFontWeight)=%%;line-height:%%=v(@ctaLineHeight)=%%;text-align:center;text-transform: uppercase;text-decoration:none;width:370px;-webkit-text-size-adjust:none;letter-spacing:%%=v(@ctaTracking)=%%;">ADD TO WATCHLIST</a> 
+                          <!--[if mso]>
+                        </center>
+                        </v:roundrect>
+                        <![endif]--> 
+                        </div></td>
+                    </tr>
+                  </table></td>
+              </tr>
+              %%=endImpressionRegion()=%% 
+              <!-- END Hero_A1_1up_Twilight -->
+     
+     <!-- START Content_A1_1up_Twilight -->
+%%=beginImpressionRegion("Content_A1_1up_Twilight")=%%
+%%[ contentblockbykey(concat('ClaravineQSP',@type)) ]%%
+<tr>
+    <td align="center">
+        <table class="module" role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" align="center" bgcolor="#02172A" style="margin-bottom: -1px; border-bottom: 1px solid #02172A;">
+            <tr>
+                <td align="center">
+                    <a href="https://www.disneyplus.com/browse/entity-0128e5bc-645e-49e9-99eb-7d58d96703da" mc-deep-link="true" target="_blank" alias="JG9QD3MF11_art" style="text-decoration: none;"><img src="https://image.mail.disneyplus.com/lib/fe4415707564067f751773/m/1/4d35a46b-1bee-4890-996a-99c43a77d8af.jpg" alt="The Bachelor" border="0" width="480" style="height: auto; display: block;color:#ffffff;font-size: %%=v(@captionFontSize)=%%;text-align: center;font-family:%%=v(@fontFamily)=%%; font-weight: %%=v(@fontWeight)=%%; line-height: %%=v(@captionLineHeight)=%%;"></a>
+                </td>
+            </tr>
+            <tr>
+                <td align="%%=v(@alignment)=%%" style="padding:48px 40px 10px;font-size: %%=v(@contentFontSize)=%%; font-weight: %%=v(@headerFontWeight)=%%;color: #ffffff; font-family:%%=v(@fontFamily)=%%;line-height:%%=v(@contentLineHeight)=%%;letter-spacing: %%=v(@contentTracking)=%%; mso-line-height-rule: exactly;">
+                    Your wish is&nbsp;Grant&#8209;ed
+                </td>
+            </tr>
+            <tr>
+                <td align="%%=v(@alignment)=%%" style="padding-left: 40px; padding-right: 40px; padding-bottom: 24px; font-size:%%=v(@bodyFontSize)=%%; color: #ffffff; font-family:%%=v(@fontFamily)=%%;line-height:%%=v(@bodyLineHeight)=%%; font-weight: %%=v(@fontWeight)=%%; mso-line-height-rule: exactly;">
+                    This day trading Bachelor is ready to go all&#8209;in on the ultimate investment: love. Get ready for big romantic risks &#8212; and even bigger rewards in an all&#8209;new season of <i>The&nbsp;Bachelor</i>, now&nbsp;streaming.
+                </td>
+            </tr>
+            <tr>
+                <td align="center" style="padding-bottom: 48px;" class="appleLinksBlack">
+                    <div>
+                        <!--[if mso]>
+                        %%=concat('<v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://www.disneyplus.com/browse/entity-0128e5bc-645e-49e9-99eb-7d58d96703da',@adobeParams,'-','XX5LJ6CN20_button" alias="XX5LJ6CN20_button" style="height:50px;v-text-anchor:middle;width:370px;letter-spacing:',@ctaTracking,';" arcsize="8%" stroke="f" fillcolor="#02D6E8">')=%%
+                        <w:anchorlock/>
+                        <center>
+                        <![endif]-->
+                            <a href="https://www.disneyplus.com/browse/entity-0128e5bc-645e-49e9-99eb-7d58d96703da" mc-deep-link="true" alias="XX5LJ6CN20_button" class="buttonLink" style="background-color:#02D6E8;background-image:linear-gradient(#02D6E8,#02D6E8) !important; box-shadow: inset 0px 50px #02D6E8; border-radius:4px;color:#000;font-family:%%=v(@fontFamily)=%%;display:inline-block;font-size:%%=v(@ctaFontSize)=%%;text-transform: uppercase;font-weight:%%=v(@ctaFontWeight)=%%;line-height:%%=v(@ctaLineHeight)=%%;text-align:center;text-decoration:none;width:370px;-webkit-text-size-adjust:none;letter-spacing:%%=v(@ctaTracking)=%%;">ADD TO WATCHLIST</a>
+                        <!--[if mso]>
+                        </center>
+                        </v:roundrect>
+                        <![endif]-->
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </td>
+</tr>
+%%=endImpressionRegion()=%%
+<!-- END Content_A1_1up_Twilight -->
+     
+     <!-- START Title_A3_3up_Twilight -->
+                  %%=beginImpressionRegion("Title_A3_3up_Twilight")=%%
+                  %%[ contentblockbykey(concat('ClaravineQSP', @type)) ]%%
+                  <tr>
+                    <td align="center">
+                      <table class="module" role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" align="center" bgcolor="#02172A" style="margin-bottom: -1px; border-bottom: 1px solid #02172A;">
+                        <tr>
+                          <td align="%%=v(@alignment)=%%" style="padding:48px 40px 24px;font-size: %%=v(@contentFontSize)=%%; font-weight: %%=v(@headerFontWeight)=%%;color: #ffffff; font-family:%%=v(@fontFamily)=%%;line-height:%%=v(@contentLineHeight)=%%;letter-spacing: %%=v(@contentTracking)=%%; mso-line-height-rule: exactly;">
+What’s new                          </td>
+                        </tr>
+                        <tr>
+                          <td align="center" style="padding: 0 40px 48px;" valign="top">
+                            <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" align="left" valign="top">
+                              <tr>
+                                <td align="left" style="padding-bottom:10px;" valign="top">
+                                  <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="127" align="left" valign="top">
+                                    <tr>
+                                      <td align="center" valign="top"><a href="https://www.disneyplus.com/browse/entity-97b19827-e7e5-4b0b-ba28-db8d0b2a31fe" mc-deep-link="true" target="_blank" alias="YG2WO7OT35_art" style="text-decoration: none;"><img src="https://image.mail.disneyplus.com/lib/fe4415707564067f751773/m/1/4a733a4c-08f4-4ce3-88a8-d5dc2bc4c836.jpg" alt="Shifting Gears" border="0" width="127" height="178" style="border-radius:4px;display: block;color:#ffffff;font-family:%%=v(@fontFamily)=%%;font-size:%%=v(@captionFontSize)=%%;text-align: center; font-weight: %%=v(@fontWeight)=%%; line-height: %%=v(@captionLineHeight)=%%;"></a>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td align="%%=v(@alignment)=%%" valign="top">
+                                        <table cellpadding="0" cellspacing="0" border="0" width="120" role="presentation" valign="top">
+                                          <tr>
+                                            <td align="%%=v(@alignment)=%%" style="color:#ffffff; padding:10px 0px 0px;font-size: %%=v(@captionFontSize)=%%; font-weight: %%=v(@fontWeight)=%%;color: #ffffff; font-family:%%=v(@fontFamily)=%%;line-height:%%=v(@captionLineHeight)=%%; mso-line-height-rule: exactly;" valign="top"></td>
+                                          </tr>
+                                        </table>
+                                      </td>
+                                    </tr>
+                                  </table>
+                                </td>
+                                <td align="center" style="padding-bottom:10px;" valign="top">
+                                  <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="127" align="center" valign="top">
+                                    <tr>
+                                      <td align="center" valign="top"><a href="https://www.disneyplus.com/browse/entity-a6fcfa83-580b-4c82-9362-75a4e97eb665" mc-deep-link="true" target="_blank" alias="YT6KB1GL27_art" style="text-decoration: none;"><img src="https://image.mail.disneyplus.com/lib/fe4415707564067f751773/m/1/cbfa2756-04ca-4bc9-8079-d4084fe06689.jpg" alt="Will Trent" border="0" width="127" height="178" style="border-radius:4px;display: block;color:#ffffff;font-family:%%=v(@fontFamily)=%%;font-size:%%=v(@captionFontSize)=%%;text-align: center; font-weight: %%=v(@fontWeight)=%%; line-height: %%=v(@captionLineHeight)=%%;"></a>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td align="%%=v(@alignment)=%%" valign="top">
+                                        <table cellpadding="0" cellspacing="0" border="0" width="120" role="presentation" valign="top">
+                                          <tr>
+                                            <td align="%%=v(@alignment)=%%" style="color:#ffffff; padding:10px 0px 0px;font-size: %%=v(@captionFontSize)=%%; font-weight: %%=v(@fontWeight)=%%;color: #ffffff; font-family:%%=v(@fontFamily)=%%;line-height:%%=v(@captionLineHeight)=%%; mso-line-height-rule: exactly;" valign="top"></td>
+                                          </tr>
+                                        </table>
+                                      </td>
+                                    </tr>
+                                  </table>
+                                </td>
+                                <td align="right" style="padding-bottom:10px;" valign="top">
+                                  <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="126" align="right" valign="top">
+                                    <tr>
+                                      <td align="center" valign="top"><a href="https://www.disneyplus.com/browse/entity-1138ee62-b9d9-4561-8094-3f7cda4bbd22" mc-deep-link="true" target="_blank" alias="HD6RY3OJ64_art" style="text-decoration: none;"><img src="https://image.mail.disneyplus.com/lib/fe4415707564067f751773/m/1/8f32c43c-1184-495f-a846-6b36ea2989e3.jpg" alt="The Rookie" border="0" width="126" height="178" style="border-radius:4px;display: block;color:#ffffff;font-family:%%=v(@fontFamily)=%%;font-size:%%=v(@captionFontSize)=%%;text-align: center; font-weight: %%=v(@fontWeight)=%%; line-height: %%=v(@captionLineHeight)=%%;"></a>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td align="%%=v(@alignment)=%%" valign="top">
+                                        <table cellpadding="0" cellspacing="0" border="0" width="120" role="presentation" valign="top">
+                                          <tr>
+                                            <td align="%%=v(@alignment)=%%" style="color:#ffffff; padding:10px 0px 0px;font-size: %%=v(@captionFontSize)=%%; font-weight: %%=v(@fontWeight)=%%;color: #ffffff; font-family:%%=v(@fontFamily)=%%;line-height:%%=v(@captionLineHeight)=%%; mso-line-height-rule: exactly;" valign="top"></td>
+                                          </tr>
+                                        </table>
+                                      </td>
+                                    </tr>
+                                  </table>
+                                </td>
+                              </tr>
+                            </table>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                  %%=endImpressionRegion()=%%
+                  <!-- END Title_A3_3up_Twilight -->
+     
+     <!-- START Content_A1_1up_Twilight -->
+%%=beginImpressionRegion("Content_A1_1up_Twilight")=%%
+%%[ contentblockbykey(concat('ClaravineQSP',@type)) ]%%
+<tr>
+    <td align="center">
+        <table class="module" role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" align="center" bgcolor="#02172A" style="margin-bottom: -1px; border-bottom: 1px solid #02172A;">
+            <tr>
+                <td align="center">
+                    <a href="https://www.disneyplus.com/browse/entity-d217e676-220f-4e3b-b9e9-53db3942dfab" mc-deep-link="true" target="_blank" alias="VT5AZ5SU34_art" style="text-decoration: none;"><img src="https://image.mail.disneyplus.com/lib/fe4415707564067f751773/m/1/1aa36a18-d03d-4086-b0ec-063e3de3f08a.jpg" alt="Goosebumps: The Vanishing" border="0" width="480" style="height: auto; display: block;color:#ffffff;font-size: %%=v(@captionFontSize)=%%;text-align: center;font-family:%%=v(@fontFamily)=%%; font-weight: %%=v(@fontWeight)=%%; line-height: %%=v(@captionLineHeight)=%%;"></a>
+                </td>
+            </tr>
+            <tr>
+                <td align="%%=v(@alignment)=%%" style="padding:48px 40px 10px;font-size: %%=v(@contentFontSize)=%%; font-weight: %%=v(@headerFontWeight)=%%;color: #ffffff; font-family:%%=v(@fontFamily)=%%;line-height:%%=v(@contentLineHeight)=%%;letter-spacing: %%=v(@contentTracking)=%%; mso-line-height-rule: exactly;">
+                    The nightmare is&nbsp;spreading
+                </td>
+            </tr>
+            <tr>
+                <td align="%%=v(@alignment)=%%" style="padding-left: 40px; padding-right: 40px; padding-bottom: 24px; font-size:%%=v(@bodyFontSize)=%%; color: #ffffff; font-family:%%=v(@fontFamily)=%%;line-height:%%=v(@bodyLineHeight)=%%; font-weight: %%=v(@fontWeight)=%%; mso-line-height-rule: exactly;">
+                    Twins Devin and Cece are sent to spend a summer with their dad (David&nbsp;Schwimmer) and find themselves entangled in the chilling tale of four teens who vanished in 1994. Binge all 8 episodes of the chilling anthology series… &nbsp;if you&nbsp;dare.
+                </td>
+            </tr>
+            <tr>
+                <td align="center" style="padding-bottom: 48px;" class="appleLinksBlack">
+                    <div>
+                        <!--[if mso]>
+                        %%=concat('<v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://www.disneyplus.com/browse/entity-d217e676-220f-4e3b-b9e9-53db3942dfab',@adobeParams,'-','VD4KX7DM35_button" alias="VD4KX7DM35_button" style="height:50px;v-text-anchor:middle;width:370px;letter-spacing:',@ctaTracking,';" arcsize="8%" stroke="f" fillcolor="#02D6E8">')=%%
+                        <w:anchorlock/>
+                        <center>
+                        <![endif]-->
+                            <a href="https://www.disneyplus.com/browse/entity-d217e676-220f-4e3b-b9e9-53db3942dfab" mc-deep-link="true" alias="VD4KX7DM35_button" class="buttonLink" style="background-color:#02D6E8;background-image:linear-gradient(#02D6E8,#02D6E8) !important; box-shadow: inset 0px 50px #02D6E8; border-radius:4px;color:#000;font-family:%%=v(@fontFamily)=%%;display:inline-block;font-size:%%=v(@ctaFontSize)=%%;text-transform: uppercase;font-weight:%%=v(@ctaFontWeight)=%%;line-height:%%=v(@ctaLineHeight)=%%;text-align:center;text-decoration:none;width:370px;-webkit-text-size-adjust:none;letter-spacing:%%=v(@ctaTracking)=%%;">ADD TO WATCHLIST</a>
+                        <!--[if mso]>
+                        </center>
+                        </v:roundrect>
+                        <![endif]-->
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </td>
+</tr>
+%%=endImpressionRegion()=%%
+<!-- END Content_A1_1up_Twilight -->
+     
+     <!-- START Content_A1_1up_Dusk -->
+%%=beginImpressionRegion("Content_A1_1up_Dusk")=%%
+%%[ contentblockbykey(concat('ClaravineQSP',@type)) ]%%
+<tr>
+    <td align="center">
+        <table class="module" role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" align="center" bgcolor="#054553" style="margin-bottom: -1px; border-bottom: 1px solid #054553;">
+            <tr>
+                <td align="center">
+                    <a href="https://www.disneyplus.com/browse/entity-4a73a750-f18c-450a-b9f7-d9f40974ff9d" mc-deep-link="true" target="_blank" alias="alias" style="text-decoration: none;"><img src="https://image.mail.disneyplus.com/lib/fe4415707564067f751773/m/1/e62c2309-883c-4ef5-9a9d-3a974864a585.jpg" alt="Skeleton Crew" border="0" width="480" style="height: auto; display: block;color:#ffffff;font-size: %%=v(@captionFontSize)=%%;text-align: center;font-family:%%=v(@fontFamily)=%%; font-weight: %%=v(@fontWeight)=%%; line-height: %%=v(@captionLineHeight)=%%;"></a>
+                </td>
+            </tr>
+            <tr>
+                <td align="%%=v(@alignment)=%%" style="padding:48px 40px 10px;font-size: %%=v(@contentFontSize)=%%; font-weight: %%=v(@headerFontWeight)=%%;color: #ffffff; font-family:%%=v(@fontFamily)=%%;line-height:%%=v(@contentLineHeight)=%%;letter-spacing: %%=v(@contentTracking)=%%; mso-line-height-rule: exactly;">
+                    The hit series is&nbsp;ready<br>
+to binge
+                </td>
+            </tr>
+            <tr>
+                <td align="%%=v(@alignment)=%%" style="padding-left: 40px; padding-right: 40px; padding-bottom: 24px; font-size:%%=v(@bodyFontSize)=%%; color: #ffffff; font-family:%%=v(@fontFamily)=%%;line-height:%%=v(@bodyLineHeight)=%%; font-weight: %%=v(@fontWeight)=%%; mso-line-height-rule: exactly;">
+                    Adventure waits for no one, so join the crew and catch up on <i>Star Wars: Skeleton Crew</i>. Explore all 8 epic episodes, only on&nbsp;Disney+.
+                </td>
+            </tr>
+            <tr>
+                <td align="center" style="padding-bottom: 48px;" class="appleLinksBlack">
+                    <div>
+                        <!--[if mso]>
+                        %%=concat('<v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://www.disneyplus.com/browse/entity-4a73a750-f18c-450a-b9f7-d9f40974ff9d',@adobeParams,'-','WW0BU0IU89_button" alias="WW0BU0IU89_button" style="height:50px;v-text-anchor:middle;width:370px;letter-spacing:',@ctaTracking,';" arcsize="8%" stroke="f" fillcolor="#02D6E8">')=%%
+                        <w:anchorlock/>
+                        <center>
+                        <![endif]-->
+                            <a href="https://www.disneyplus.com/browse/entity-4a73a750-f18c-450a-b9f7-d9f40974ff9d" mc-deep-link="true" alias="WW0BU0IU89_button" class="buttonLink" style="background-color:#02D6E8;background-image:linear-gradient(#02D6E8,#02D6E8) !important; box-shadow: inset 0px 50px #02D6E8; border-radius:4px;color:#000;font-family:%%=v(@fontFamily)=%%;display:inline-block;font-size:%%=v(@ctaFontSize)=%%;text-transform: uppercase;font-weight:%%=v(@ctaFontWeight)=%%;line-height:%%=v(@ctaLineHeight)=%%;text-align:center;text-decoration:none;width:370px;-webkit-text-size-adjust:none;letter-spacing:%%=v(@ctaTracking)=%%;">ADD TO WATCHLIST</a>
+                        <!--[if mso]>
+                        </center>
+                        </v:roundrect>
+                        <![endif]-->
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </td>
+</tr>
+%%=endImpressionRegion()=%%
+<!-- END Content_A1_1up_Dusk -->
+     
+     <!-- START Content_A1_1up_Twilight -->
+%%=beginImpressionRegion("Content_A1_1up_Twilight")=%%
+%%[ contentblockbykey(concat('ClaravineQSP',@type)) ]%%
+<tr>
+    <td align="center">
+        <table class="module" role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" align="center" bgcolor="#02172A" style="margin-bottom: -1px; border-bottom: 1px solid #02172A;">
+            <tr>
+                <td align="center">
+                    <a href="https://www.disneyplus.com/browse/entity-d5193cc5-fb8e-4414-826c-d311daa1bef8" mc-deep-link="true" target="_blank" alias="FF4HQ5LS01_art" style="text-decoration: none;"><img src="https://image.mail.disneyplus.com/lib/fe4415707564067f751773/m/1/b6309345-8a3a-4378-b1c0-45779f1c9222.jpg" alt="A Real Bug's Life" border="0" width="480" style="height: auto; display: block;color:#ffffff;font-size: %%=v(@captionFontSize)=%%;text-align: center;font-family:%%=v(@fontFamily)=%%; font-weight: %%=v(@fontWeight)=%%; line-height: %%=v(@captionLineHeight)=%%;"></a>
+                </td>
+            </tr>
+            <tr>
+                <td align="%%=v(@alignment)=%%" style="padding:48px 40px 10px;font-size: %%=v(@contentFontSize)=%%; font-weight: %%=v(@headerFontWeight)=%%;color: #ffffff; font-family:%%=v(@fontFamily)=%%;line-height:%%=v(@contentLineHeight)=%%;letter-spacing: %%=v(@contentTracking)=%%; mso-line-height-rule: exactly;">
+                    Tiny heroes. Huge&nbsp;drama.
+                </td>
+            </tr>
+            <tr>
+                <td align="%%=v(@alignment)=%%" style="padding-left: 40px; padding-right: 40px; padding-bottom: 24px; font-size:%%=v(@bodyFontSize)=%%; color: #ffffff; font-family:%%=v(@fontFamily)=%%;line-height:%%=v(@bodyLineHeight)=%%; font-weight: %%=v(@fontWeight)=%%; mso-line-height-rule: exactly;">
+                    Get ready to get closer than ever to the weird, wild, and wonderful world of bugs. Season 2 is teeming with high&#8209;stakes battles, enchanting love stories, and mind&#8209;blowing superpowers from the most extraordinary tiny characters you’ll ever&nbsp;meet.
+                </td>
+            </tr>
+            <tr>
+                <td align="center" style="padding-bottom: 48px;" class="appleLinksBlack">
+                    <div>
+                        <!--[if mso]>
+                        %%=concat('<v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://www.disneyplus.com/browse/entity-d5193cc5-fb8e-4414-826c-d311daa1bef8',@adobeParams,'-','NE4EY1OK35_button" alias="NE4EY1OK35_button" style="height:50px;v-text-anchor:middle;width:370px;letter-spacing:',@ctaTracking,';" arcsize="8%" stroke="f" fillcolor="#02D6E8">')=%%
+                        <w:anchorlock/>
+                        <center>
+                        <![endif]-->
+                            <a href="https://www.disneyplus.com/browse/entity-d5193cc5-fb8e-4414-826c-d311daa1bef8" mc-deep-link="true" alias="NE4EY1OK35_button" class="buttonLink" style="background-color:#02D6E8;background-image:linear-gradient(#02D6E8,#02D6E8) !important; box-shadow: inset 0px 50px #02D6E8; border-radius:4px;color:#000;font-family:%%=v(@fontFamily)=%%;display:inline-block;font-size:%%=v(@ctaFontSize)=%%;text-transform: uppercase;font-weight:%%=v(@ctaFontWeight)=%%;line-height:%%=v(@ctaLineHeight)=%%;text-align:center;text-decoration:none;width:370px;-webkit-text-size-adjust:none;letter-spacing:%%=v(@ctaTracking)=%%;">ADD TO WATCHLIST</a>
+                        <!--[if mso]>
+                        </center>
+                        </v:roundrect>
+                        <![endif]-->
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </td>
+</tr>
+%%=endImpressionRegion()=%%
+<!-- END Content_A1_1up_Twilight -->
+     
+     <!-- START Content_A1_1up_Dusk -->
+%%=beginImpressionRegion("Content_A1_1up_Dusk")=%%
+%%[ contentblockbykey(concat('ClaravineQSP',@type)) ]%%
+<tr>
+    <td align="center">
+        <table class="module" role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" align="center" bgcolor="#054553" style="margin-bottom: -1px; border-bottom: 1px solid #054553;">
+            <tr>
+                <td align="center">
+                    <a href="https://www.disneyplus.com/browse/page-ed98a93a-f60b-4818-b2dd-f4b311d6f28b" mc-deep-link="true" target="_blank" alias="WN6DD7ZW17_art" style="text-decoration: none;"><img src="https://image.mail.disneyplus.com/lib/fe4415707564067f751773/m/1/99eb719f-e65c-46de-9be4-13006b8f42ad.jpg" alt="Critically Acclaimed Collection" border="0" width="480" style="height: auto; display: block;color:#ffffff;font-size: %%=v(@captionFontSize)=%%;text-align: center;font-family:%%=v(@fontFamily)=%%; font-weight: %%=v(@fontWeight)=%%; line-height: %%=v(@captionLineHeight)=%%;"></a>
+                </td>
+
+            </tr>
+            <tr>
+                <td align="%%=v(@alignment)=%%" style="padding:48px 40px 10px;font-size: %%=v(@contentFontSize)=%%; font-weight: %%=v(@headerFontWeight)=%%;color: #ffffff; font-family:%%=v(@fontFamily)=%%;line-height:%%=v(@contentLineHeight)=%%;letter-spacing: %%=v(@contentTracking)=%%; mso-line-height-rule: exactly;">
+                    Red carpet rabbit&nbsp;hole
+                </td>
+            </tr>
+            <tr>
+                <td align="%%=v(@alignment)=%%" style="padding-left: 40px; padding-right: 40px; padding-bottom: 24px; font-size:%%=v(@bodyFontSize)=%%; color: #ffffff; font-family:%%=v(@fontFamily)=%%;line-height:%%=v(@bodyLineHeight)=%%; font-weight: %%=v(@fontWeight)=%%; mso-line-height-rule: exactly;">
+                    Get ready for awards season with a rewatch of the standout movies, series, shorts, and documentaries on Disney+. Check out recent winners, nominees, and more in the Critically&nbsp;Acclaimed&nbsp;Collection.
+                </td>
+            </tr>
+            <tr>
+                <td align="center" style="padding-bottom: 48px;" class="appleLinksBlack">
+                    <div>
+                        <!--[if mso]>
+                        %%=concat('<v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://www.disneyplus.com/browse/page-ed98a93a-f60b-4818-b2dd-f4b311d6f28b',@adobeParams,'-','RN6BV6UU94_button" alias="RN6BV6UU94_button" style="height:50px;v-text-anchor:middle;width:370px;letter-spacing:',@ctaTracking,';" arcsize="8%" stroke="f" fillcolor="#02D6E8">')=%%
+                        <w:anchorlock/>
+                        <center>
+                        <![endif]-->
+                            <a href="https://www.disneyplus.com/browse/page-ed98a93a-f60b-4818-b2dd-f4b311d6f28b" mc-deep-link="true" alias="RN6BV6UU94_button" class="buttonLink" style="background-color:#02D6E8;background-image:linear-gradient(#02D6E8,#02D6E8) !important; box-shadow: inset 0px 50px #02D6E8; border-radius:4px;color:#000;font-family:%%=v(@fontFamily)=%%;display:inline-block;font-size:%%=v(@ctaFontSize)=%%;text-transform: uppercase;font-weight:%%=v(@ctaFontWeight)=%%;line-height:%%=v(@ctaLineHeight)=%%;text-align:center;text-decoration:none;width:370px;-webkit-text-size-adjust:none;letter-spacing:%%=v(@ctaTracking)=%%;">EXPLORE THE COLLECTION</a>
+                        <!--[if mso]>
+                        </center>
+                        </v:roundrect>
+                        <![endif]-->
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </td>
+</tr>
+%%=endImpressionRegion()=%%
+<!-- END Content_A1_1up_Dusk -->
+     
+     <!-- START Content_A1_1up_Twilight -->
+%%=beginImpressionRegion("Content_A1_1up_Twilight")=%%
+%%[ contentblockbykey(concat('ClaravineQSP',@type)) ]%%
+<tr>
+    <td align="center">
+        <table class="module" role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" align="center" bgcolor="#02172A" style="margin-bottom: -1px; border-bottom: 1px solid #02172A;">
+            <tr>
+                <td align="center">
+                    <a href="https://www.disneyplus.com/browse/entity-2a9faf72-1c3f-4c1a-aa23-d6323a5e914f" mc-deep-link="true" target="_blank" alias="PO0TY5ZR51_art" style="text-decoration: none;"><img src="https://image.mail.disneyplus.com/lib/fe4415707564067f751773/m/1/69d77f65-6bc6-48e4-a723-48b9f5d8f2a9.jpg" alt="Disney+ Trivia" border="0" width="480" style="height: auto; display: block;color:#ffffff;font-size: %%=v(@captionFontSize)=%%;text-align: center;font-family:%%=v(@fontFamily)=%%; font-weight: %%=v(@fontWeight)=%%; line-height: %%=v(@captionLineHeight)=%%;"></a>
+                </td>
+            </tr>
+            <tr>
+                <td align="%%=v(@alignment)=%%" style="padding:48px 40px 10px;font-size: %%=v(@contentFontSize)=%%; font-weight: %%=v(@headerFontWeight)=%%;color: #ffffff; font-family:%%=v(@fontFamily)=%%;line-height:%%=v(@contentLineHeight)=%%;letter-spacing: %%=v(@contentTracking)=%%; mso-line-height-rule: exactly;">
+                    Guess the 1&zwnj;9&zwnj;7&zwnj;1&nbsp;hit
+                </td>
+            </tr>
+            <tr>
+                <td align="%%=v(@alignment)=%%" style="padding-left: 40px; padding-right: 40px; padding-bottom: 24px; font-size:%%=v(@bodyFontSize)=%%; color: #ffffff; font-family:%%=v(@fontFamily)=%%;line-height:%%=v(@bodyLineHeight)=%%; font-weight: %%=v(@fontWeight)=%%; mso-line-height-rule: exactly;">
+                    Three children move to a village during World War II and discover that their host, Miss Price, is an apprentice witch! With their help, she casts a spell, and they all fly to the legendary Isle of Naboombu to find a powerful spell to save&nbsp;England.
+                </td>
+            </tr>
+            <tr>
+                <td align="center" style="padding-bottom: 48px;" class="appleLinksBlack">
+                    <div>
+                        <!--[if mso]>
+                        %%=concat('<v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://www.disneyplus.com/browse/entity-2a9faf72-1c3f-4c1a-aa23-d6323a5e914f',@adobeParams,'-','YY7ZV3ZZ33_button" alias="YY7ZV3ZZ33_button" style="height:50px;v-text-anchor:middle;width:370px;letter-spacing:',@ctaTracking,';" arcsize="8%" stroke="f" fillcolor="#02D6E8">')=%%
+                        <w:anchorlock/>
+                        <center>
+                        <![endif]-->
+                            <a href="https://www.disneyplus.com/browse/entity-2a9faf72-1c3f-4c1a-aa23-d6323a5e914f" mc-deep-link="true" alias="YY7ZV3ZZ33_button" class="buttonLink" style="background-color:#02D6E8;background-image:linear-gradient(#02D6E8,#02D6E8) !important; box-shadow: inset 0px 50px #02D6E8; border-radius:4px;color:#000;font-family:%%=v(@fontFamily)=%%;display:inline-block;font-size:%%=v(@ctaFontSize)=%%;text-transform: uppercase;font-weight:%%=v(@ctaFontWeight)=%%;line-height:%%=v(@ctaLineHeight)=%%;text-align:center;text-decoration:none;width:370px;-webkit-text-size-adjust:none;letter-spacing:%%=v(@ctaTracking)=%%;">Reveal</a>
+                        <!--[if mso]>
+                        </center>
+                        </v:roundrect>
+                        <![endif]-->
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </td>
+</tr>
+%%=endImpressionRegion()=%%
+<!-- END Content_A1_1up_Twilight -->
+     
+     <!-- START Banner_E1_Streaming_null_Twilight -->
+%%=beginImpressionRegion("Banner_E1_Streaming_Null")=%%
+%%[ contentblockbykey(concat('ClaravineQSP', @type)) ]%%
+%%[ contentblockbykey(concat('MessageDesignSystemAssets', @type)) ]%%
+<tr>
+  <td align="center">
+    <table class="module" role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" bgcolor="#02172A" style="margin-bottom: -1px; border-bottom: 1px solid #02172A;">
+      <tr>
+        <td align="%%=v(@alignment)=%%" style="padding: 24px 40px 24px;font-size: %%=v(@bannerFontSize)=%%; font-weight:%%=v(@fontWeight)=%%;text-transform: uppercase;color:#ffffff; font-family:%%=v(@fontFamily)=%%;letter-spacing:%%=v(@bannerTracking)=%%;line-height:%%=v(@bannerLineHeight)=%%;mso-line-height-rule: exactly;">
+          %%=v(@banner_e1_text)=%%
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
+%%=endImpressionRegion()=%%
+<!-- END Banner_E1_Streaming_null_Twilight -->
+              
+              <!-- ====== END Body Modules ======== -->
+            </table></td>
+        </tr>
+        <tr>
+          <td align="center"><table class="module" role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" bgcolor="#02172A" style="margin-bottom: -1px; border-bottom: 1px solid #02172A;">
+              <tr>
+                <td><table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                    <tr>
+                      <td align="center">%%=contentblockbykey(concat('FooterSocial', @type))=%%</td>
+                    </tr>
+                    <tr>
+                      <td align="center">%%=contentblockbykey(concat('FooterHelp', @type))=%%</td>
+                    </tr>
+                    <tr>
+                      <td bgcolor="#757679" style="font-size:0;"><img src="https://image.mail.disneyplus.com/lib/fe4415707564067f751773/m/1/50b6aed0-e0d0-42ec-b6d9-0b67b86ca899.gif" alt="" width="1" height="1" style="display:block" border="0"></td>
+                    </tr>
+                    <tr>
+                      <td>%%=contentblockbykey(concat('FooterLogos', @type))=%%</td>
+                    </tr>
+                    <!-- ====== FooterAdditional_A1_null_Black can be added here ======== -->
+     
+     <!-- START FooterAdditionalA1_null_Twilight -->
+%%=beginImpressionRegion("FooterAdditionalA1_null_Twilight")=%%
+%%[ contentblockbykey(concat('ClaravineQSP', @type)) ]%%
+<tr>
+    <td class="appleLinksGray5UL" style="font-size: %%=v(@legalFontSize)=%%; font-family: %%=v(@fontFamily)=%%; line-height: %%=v(@legalLineHeight)=%%; color: #C0C0C0; padding: 24px 40px 0;mso-line-height-rule: exactly;" align="left">
+        &#42;Available for U.S. residents, 1&zwnj;8+ only. Location data required to watch certain content. Select Hulu content available via Disney+; additional content only available via Hulu app. Offer valid for eligible subscribers only. Subject to <a href="https://www.disneyplus.com/legal/subscriber-agreement" style="text-decoration: underline; color: #C0C0C0" mc-deep-link="false" target="_blank" alias="disney_subscriber_agreement">Disney+ and ESPN+ Subscriber Agreement</a>. Additional terms, app feature and device restrictions apply. For more information visit the <a href="https://help.disneyplus.com/" style="text-decoration: underline; color: #C0C0C0" mc-deep-link="false" target="_blank" alias="disney_help_center">Disney+ Help Center</a>. &copy;&nbsp;%%xtyear%% Disney and its related&nbsp;entities.
+    </td>
+</tr>
+%%=endImpressionRegion()=%%
+<!-- END FooterAdditionalA1_null_Twilight -->
+                    <tr>
+                      <td>%%=treatascontent(contentblockbykey(@footerLegal))=%%</td>
+                    </tr>
+                  </table></td>
+              </tr>
+              <tr>
+                <td style="padding-left: 240px; padding-right: 240px;"></td>
+              </tr>
+            </table></td>
+        </tr>
+      </table></td>
+  </tr>
+</table>
+<custom name="opencounter" type="tracking" />
+</body>
+</html>
